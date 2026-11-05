@@ -12,3 +12,17 @@ export interface CartItem {
   product: Product;
   quantity: number;
 }
+
+// Pedido que devuelve el backend al hacer POST /api/orders
+export interface Order {
+  id: number;
+  created_at: string;
+  total: number;
+  items: {
+    product_id: number;
+    name: string;
+    price: number;
+    quantity: number;
+    subtotal: number;
+  }[];
+}
