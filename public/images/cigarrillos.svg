@@ -1,0 +1,14 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#f1f1f1"/>
+  <rect x="76" y="34" width="12" height="40" fill="#fff" stroke="#ccc"/>
+  <rect x="76" y="34" width="12" height="12" fill="#d9a066"/>
+  <rect x="94" y="26" width="12" height="40" fill="#fff" stroke="#ccc"/>
+  <rect x="94" y="26" width="12" height="12" fill="#d9a066"/>
+  <rect x="60" y="56" width="80" height="116" rx="4" fill="#fff" stroke="#ccc" stroke-width="2"/>
+  <rect x="60" y="56" width="80" height="38" fill="#c8102e"/>
+  <text x="100" y="118" font-family="Arial, sans-serif" font-weight="bold" font-size="10" fill="#c8102e" text-anchor="middle">CIGARRILLOS</text>
+  <rect x="60" y="134" width="80" height="38" fill="#111"/>
+  <text x="100" y="147" font-family="Arial, sans-serif" font-size="6.5" fill="#fff" text-anchor="middle">EL FUMAR ES</text>
+  <text x="100" y="156" font-family="Arial, sans-serif" font-size="6.5" fill="#fff" text-anchor="middle">PERJUDICIAL</text>
+  <text x="100" y="165" font-family="Arial, sans-serif" font-size="6.5" fill="#fff" text-anchor="middle">PARA LA SALUD</text>
+</svg>

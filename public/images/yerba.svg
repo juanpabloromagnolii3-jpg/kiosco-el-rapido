@@ -1,0 +1,13 @@
+<svg xmlns="http://www.w3.org/2000/svg" viewBox="0 0 200 200">
+  <rect width="200" height="200" fill="#eaf4e4"/>
+  <path d="M38 38h78l-6-12H44z" fill="#25632a"/>
+  <rect x="38" y="38" width="78" height="128" rx="3" fill="#2f7d32"/>
+  <rect x="44" y="70" width="66" height="52" fill="#f6e7b0"/>
+  <text x="77" y="92" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#2f7d32" text-anchor="middle">YERBA</text>
+  <text x="77" y="108" font-family="Arial, sans-serif" font-weight="bold" font-size="12" fill="#2f7d32" text-anchor="middle">MATE</text>
+  <text x="77" y="148" font-family="Arial, sans-serif" font-size="10" fill="#fff" text-anchor="middle">500 g</text>
+  <path d="M128 122c0-8 8-12 22-12s22 4 22 12c0 22-8 44-22 44s-22-22-22-44z" fill="#8b5a2b"/>
+  <ellipse cx="150" cy="116" rx="20" ry="6" fill="#5b8a2e"/>
+  <path d="M154 114l14-44" stroke="#bdbdbd" stroke-width="4" stroke-linecap="round"/>
+  <rect x="128" y="118" width="44" height="6" rx="3" fill="#c9a04a"/>
+</svg>
