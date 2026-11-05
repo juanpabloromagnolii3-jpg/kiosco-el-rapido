@@ -1,21 +1,47 @@
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { Link, useParams } from "react-router-dom";
 import { useCart } from "../context/CartContext";
-import { products } from "../data/products";
+import { getProductById } from "../services/api";
+import type { Product } from "../types";
 
 export default function ProductDetail() {
   const { id } = useParams();
   const { addToCart } = useCart();
+
+  const [product, setProduct] = useState<Product | null>(null);
+  const [loading, setLoading] = useState(true);
+  const [error, setError] = useState("");
   const [quantity, setQuantity] = useState(1);
   const [message, setMessage] = useState("");
 
-  // El id de la URL viene como texto, por eso se convierte a número
-  const product = products.find((p) => p.id === Number(id));
+  // Cada vez que cambia el id de la URL se pide el producto al backend
+  useEffect(() => {
+    setLoading(true);
+    setError("");
+    setProduct(null);
 
-  if (!product) {
+    // El id de la URL viene como texto, por eso se convierte a número
+    const productId = Number(id);
+    if (isNaN(productId)) {
+      setError("Producto no encontrado");
+      setLoading(false);
+      return;
+    }
+
+    getProductById(productId)
+      .then((data) => setProduct(data))
+      .catch((err: Error) => setError(err.message))
+      .finally(() => setLoading(false));
+  }, [id]);
+
+  if (loading) {
+    return <p className="message">Cargando producto...</p>;
+  }
+
+  if (error || !product) {
     return (
       <div className="message-box">
-        <h1>Producto no encontrado</h1>
+        <p className="error">{error}</p>
         <Link to="/products" className="button">
           Volver al catálogo
         </Link>
@@ -42,21 +68,25 @@ export default function ProductDetail() {
         <p className="price">${product.price.toLocaleString("es-AR")}</p>
         <p>Stock: {product.stock}</p>
 
-        <div className="add-form">
-          <label>
-            Cantidad:{" "}
-            <input
-              type="number"
-              min={1}
-              max={product.stock}
-              value={quantity}
-              onChange={(e) => setQuantity(Number(e.target.value))}
-            />
-          </label>
-          <button className="button" onClick={handleAdd}>
-            Agregar al carrito
-          </button>
-        </div>
+        {product.stock > 0 ? (
+          <div className="add-form">
+            <label>
+              Cantidad:{" "}
+              <input
+                type="number"
+                min={1}
+                max={product.stock}
+                value={quantity}
+                onChange={(e) => setQuantity(Number(e.target.value))}
+              />
+            </label>
+            <button className="button" onClick={handleAdd}>
+              Agregar al carrito
+            </button>
+          </div>
+        ) : (
+          <p className="error">Sin stock</p>
+        )}
 
         {message && <p className="message">{message}</p>}
 

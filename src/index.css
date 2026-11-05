@@ -179,6 +179,20 @@ h1 {
   font-weight: 600;
 }
 
+.error {
+  background-color: #fdeaea;
+  border-left: 4px solid #d64545;
+  color: #a12f2f;
+  padding: 14px;
+  border-radius: 6px;
+  font-weight: 600;
+}
+
+.button:disabled {
+  opacity: 0.6;
+  cursor: not-allowed;
+}
+
 .message-box {
   background-color: var(--blanco);
   border-radius: 12px;
